@@ -140,3 +140,4 @@ dmypy.json
 
 app.db
 animate.log*
+settings.json*
