@@ -1,0 +1,4 @@
+Added functions for search abstraction
+Still can't get it to work properly
+Db migrations appear to have worked out, but getting token errors  
+https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-xvi-full-text-search
