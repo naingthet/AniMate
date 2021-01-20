@@ -13,3 +13,4 @@ class Config(object):
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     ADMINS = ['animate.recommendation.system@gmail.com']
     ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
+    RESULTS_PER_PAGE = 10

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+
+    <main class="page blog-post-list">
+        <section class="clean-block clean-blog-list dark">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info">Search Animes</h2>
+                    <p>Search for animes so that you can rate them!</p>
+                </div>
+                <div class="block-content" style="text-align: left;">
+                    {{ wtf.quick_form(form, button_map={'submit': 'primary'}) }}
+            {% if results %}
+            <br><br>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Anime Name</th>
+                                <th>Genre</th>
+                                <th>Type</th>
+                                <th>Episodes</th>
+                                <th>Average Rating</th>
+                                <th>Your Rating (1-10)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for result in results %}
+                            <tr>
+                                <td>{{ result.name }}</td>
+                                <td>{{ result.genre }}</td>
+                                <td>{{ result.type }}</td>
+                                <td>{{ result.episodes }}</td>
+                                <td>{{ result.avg_rating }}</td>
+                                <td><input type="number" placeholder="Your Rating"/></td>
+                            </tr>
+                            {% endfor %}
+                            <tr></tr>
+                        </tbody>
+                    </table>
+                    {% endif %}
+            </div>
+        </section>
+    </main>
+
+{% endblock %}

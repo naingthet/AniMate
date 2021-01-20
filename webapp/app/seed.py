@@ -18,4 +18,3 @@ def load_anime_info(filename):
         
         db.session.commit()
 
-

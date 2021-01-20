@@ -1,13 +1,12 @@
-from flask import render_template, flash, redirect, url_for
+from flask import render_template, flash, redirect, url_for, request
 from app import app, db
-from app.forms import LoginForm, RegistrationForm
-from flask_login import current_user, login_user, logout_user
-from app.models import User
-from flask import request
+from flask_login import current_user, login_user, logout_user, login_required
+from app.models import User, Ratings, Animes
+from flask import request, g
 from werkzeug.urls import url_parse
-from app.forms import ResetPasswordRequestForm
+from app.forms import LoginForm, RegistrationForm, ResetPasswordRequestForm, ResetPasswordForm, SearchForm
 from app.email import send_password_reset_email
-from app.forms import ResetPasswordForm
+
 
 # Index (Home Page)
 @app.route('/')
@@ -29,7 +28,7 @@ def login():
         login_user(user, remember=form.remember_me.data)
         next_page = request.args.get('next')
         if not next_page or url_parse(next_page).netloc != '':
-            next_page = url_for('index')
+            next_page = url_for('search')
         return redirect(next_page)
     return render_template('login.html', title='Log In', form=form)
 
@@ -37,7 +36,7 @@ def login():
 @app.route('/logout')
 def logout():
     logout_user()
-    return redirect(url_for('index'))
+    return render_template('logout.html')
 
 # Register
 @app.route('/register', methods=['GET', 'POST'])
@@ -86,4 +85,35 @@ def reset_password(token):
         return redirect(url_for('login'))
     return render_template('reset_password.html', form=form)
 
+# Search
+@app.route('/search', methods=['GET', 'POST'])
+# @login_required
+def search():
+    form = SearchForm(csrf=False)
+    if form.validate_on_submit():
+        search_term = form.search.data
+        query, total = Animes.search(search_term, 1, 5)
+        results = query.all()
+        return render_template('search.html', search_term=search_term, form=form, results=results)
+    return render_template('search.html', form=form)
+    
+
+# @app.route('/search_results')
+# # @login_required
+# def search_results():
+#     form = SearchForm()
+#     # if form.validate_on_submit():
+#     #     query, total = Animes.search(form.search.data, 1, 5)
+#     #     search_results = query.all()
+
+#     #     user = User.query.filter_by(username=form.username.data).first()
+#     #     if user is None or not user.check_password(form.password.data):
+#     #         flash('Invalid username or password')
+#     #         return redirect(url_for('login'))
+#     #     login_user(user, remember=form.remember_me.data)
+#     #     next_page = request.args.get('next')
+#     #     if not next_page or url_parse(next_page).netloc != '':
+#     #         next_page = url_for('search')
+#     #     return redirect(next_page)
+#     return render_template('search_results.html', form=form)
 

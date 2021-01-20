@@ -4,6 +4,24 @@ from flask_login import UserMixin
 from time import time
 import jwt
 from app import app
+from app.search import add_to_index, query_index
+
+# Search mixin
+class SearchableMixin(object):
+    @classmethod
+    def search(cls, expression, page, per_page):
+        ids, total = query_index(cls.__tablename__, expression, page, per_page)
+        if total == 0:
+            return cls.query.filter_by(id=0), 0
+        when = []
+        for i in range(len(ids)):
+            when.append((ids[i], i))
+        return cls.query.filter(cls.id.in_(ids)).order_by(db.case(when, value=cls.id)), total
+
+    @classmethod
+    def reindex(cls):
+        for obj in cls.query:
+            add_to_index(cls.__tablename__, obj)
 
 # Storing User Data
 class User(UserMixin, db.Model):
@@ -54,7 +72,7 @@ class Ratings(db.Model):
 
 
 # Storing Anime Data
-class Animes(db.Model):
+class Animes(SearchableMixin, db.Model):
     __searchable__ = ['name']
     id = db.Column(db.Integer, index=True, primary_key=True)
     name = db.Column(db.String)
@@ -66,5 +84,5 @@ class Animes(db.Model):
     ratings = db.relationship('Ratings', backref='anime_info', lazy='dynamic')
 
     def __repr__(self):
-        return '<Animes>'
+        return '<Anime: {}>'.format(self.name)
 

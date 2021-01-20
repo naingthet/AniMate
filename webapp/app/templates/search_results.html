@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+<main class="page login-page">
+    <section class="clean-block clean-form dark">
+        <div class="container">
+            <div class="block-heading">
+                <h2 class="text-info">Results</h2>
+                <p>Log in to develop your profile, save your ratings and receive anime recommendations!</p>
+            </div>
+                {{ wtf.quick_form(form, button_map={'submit': 'primary'}) }}
+        </div>
+</section>
+<section>
+    <form method="post">
+        {{ form.csrf_token }}
+        {{ form.query }}
+        {{ form.submit }}
+        {% if results %}
+            {{ results }}
+        {% endif %}
+    </form>
+</section>
+</main>
+{% endblock %}
+
+<main class="page login-page">
+    <section class="clean-block clean-form dark">
+        <div class="container">
+            <div class="block-heading">
+                <h2 class="text-info">Search</h2>
+                <p>Log in to develop your profile, save your ratings and receive anime recommendations!</p>
+            </div>
+                {{ wtf.quick_form(form, button_map={'submit': 'primary'}) }}
+        </div>
+</section>
+</main>
