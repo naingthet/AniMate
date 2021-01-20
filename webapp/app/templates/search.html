@@ -34,8 +34,8 @@
                                 <td>{{ result.type }}</td>
                                 <td>{{ result.episodes }}</td>
                                 <td>{{ result.avg_rating }}</td>
-                                {% if user_rating %}
-                                <td>{{ user_rating }}</td>
+                                {% if result.user_rating %}
+                                <td style="color: var(--purple);font-size: 20px;text-align: center;"><strong>{{ result.user_rating }}</strong></td>
                                 {% else %}
                                 <td><input type="number" placeholder="Your Rating"/></td>
                                 {% endif %}

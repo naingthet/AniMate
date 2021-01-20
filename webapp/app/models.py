@@ -62,8 +62,8 @@ def load_user(id):
 # Storing User Ratings
 class Ratings(db.Model):
     id = db.Column(db.Integer, index=True, primary_key=True)
-    anime_id = db.Column(db.Integer, db.ForeignKey('animes.id'))
-    #anime_name = db.Column(db.String(256), db.ForeignKey('animes.name'))
+    #anime_id = db.Column(db.Integer, db.ForeignKey('animes.id'))
+    anime_name = db.Column(db.String(256), db.ForeignKey('animes.name'))
     user_rating = db.Column(db.Integer)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
 

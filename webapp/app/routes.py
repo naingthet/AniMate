@@ -28,7 +28,7 @@ def login():
         login_user(user, remember=form.remember_me.data)
         next_page = request.args.get('next')
         if not next_page or url_parse(next_page).netloc != '':
-            next_page = url_for('search')
+            next_page = url_for('index')
         return redirect(next_page)
     return render_template('login.html', title='Log In', form=form)
 
@@ -87,13 +87,20 @@ def reset_password(token):
 
 # Search
 @app.route('/search', methods=['GET', 'POST'])
-# @login_required
+@login_required
 def search():
     form = SearchForm(csrf=False)
     if form.validate_on_submit():
         search_term = form.search.data
         query, total = Animes.search(search_term, 1, 5)
         results = query.all()
+        user_id = current_user.id
+        for i in results:
+            anime_name = i.name
+            rating = Ratings.query.filter_by(anime_name=anime_name, user_id=user_id).first()
+            if rating:
+                i.user_rating = rating.user_rating
+            else:
+                i.user_rating = None
         return render_template('search.html', search_term=search_term, form=form, results=results)
     return render_template('search.html', form=form)
-    
