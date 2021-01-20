@@ -34,7 +34,11 @@
                                 <td>{{ result.type }}</td>
                                 <td>{{ result.episodes }}</td>
                                 <td>{{ result.avg_rating }}</td>
+                                {% if user_rating %}
+                                <td>{{ user_rating }}</td>
+                                {% else %}
                                 <td><input type="number" placeholder="Your Rating"/></td>
+                                {% endif %}
                             </tr>
                             {% endfor %}
                             <tr></tr>
