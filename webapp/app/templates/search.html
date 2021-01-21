@@ -27,18 +27,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for result in results %}
+                            {% for anime in results %}
                             <tr>
-                                <td>{{ result.name }}</td>
-                                <td>{{ result.genre }}</td>
-                                <td>{{ result.type }}</td>
-                                <td>{{ result.episodes }}</td>
-                                <td>{{ result.avg_rating }}</td>
-                                {% if result.user_rating %}
-                                <td style="color: var(--purple);font-size: 20px;text-align: center;"><strong>{{ result.user_rating }}</strong></td>
+                                <td>{{ anime.name }}</td>
+                                <td>{{ anime.genre }}</td>
+                                <td>{{ anime.type }}</td>
+                                <td>{{ anime.episodes }}</td>
+                                <td>{{ anime.avg_rating }}</td>
+                                {% if anime.user_rating %}
+                                <td style="color: var(--purple);font-size: 20px;text-align: center;"><strong>{{ anime.user_rating }}</strong></td>
                                 {% else %}
                                     <td style="color: var(--purple);font-size: 20px;text-align: center;"><strong>
-                                        <a href="{{ url_for('rate', anime_name=result.name) }}">Rate</a></strong></td>
+                                        <a href="/{{ anime.name }}">Rate</a></strong></td>
                                 {% endif %}
                             </tr>
                             {% endfor %}

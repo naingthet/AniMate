@@ -108,30 +108,19 @@ def search():
     return render_template('search.html', form=form)
 
 # Rating page for each anime
-@app.route('/rate', methods=['GET', 'POST'])
+@app.route('/<anime_name>', methods=['GET', 'POST'])
 @login_required
-def rate():
-    anime_name = request.args.get('anime_name', None)
+def display_anime(anime_name):
     anime = Animes.query.filter_by(name=anime_name).first()
     user_id = current_user.id
-
     form = RatingForm(csrf=False)
 
-    if form.validate_on_submit:
+    if form.validate_on_submit():
         new_rating = form.rating.data
-        if new_rating in range(1, 11):
-            r = Ratings(anime_name=anime_name, user_rating=new_rating, user_id=user_id)
+        if new_rating != None or "None":
+            r = Ratings(anime_name=anime.name, user_rating=new_rating, user_id=user_id)
             db.session.add(r)
             db.session.commit()
             return redirect(url_for('search'))
-    return render_template('rate.html', anime=anime, form=form)
 
-
-# rating_form = RatingForm(csrf=False)
-#             if rating_form.is_submitted():
-#                 new_rating = rating_form.rating.data
-#                 if new_rating in range(1, 11):
-#                     r = Ratings(anime_name=anime_name, user_rating=new_rating, user_id=user_id)
-#                     db.session.add(r)
-#                     db.session.commit()
-#                     return redirect(url_for('search'))
+    return render_template('anime.html', anime=anime, form=form)

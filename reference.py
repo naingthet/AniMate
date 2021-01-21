@@ -39,3 +39,4 @@ index = len(Ratings.query.all())
 r = Ratings(id=index, anime_name="One Punch Man", user_rating=10, user_id=1)
 db.session.add(r)
 db.session.commit()
+
