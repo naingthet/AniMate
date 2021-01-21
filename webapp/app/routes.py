@@ -14,6 +14,7 @@ from app.email import send_password_reset_email
 def index():
     return render_template('index.html', title='Home')
 
+
 # Login
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -32,11 +33,13 @@ def login():
         return redirect(next_page)
     return render_template('login.html', title='Log In', form=form)
 
+
 # Logout
 @app.route('/logout')
 def logout():
     logout_user()
     return render_template('logout.html')
+
 
 # Register
 @app.route('/register', methods=['GET', 'POST'])
@@ -68,6 +71,7 @@ def reset_password_request():
         return redirect(url_for('login'))
     return render_template('reset_password_request.html',
                            title='Reset Password', form=form)
+
 
 # Reset password
 @app.route('/reset_password/<token>', methods=['GET', 'POST'])
@@ -106,6 +110,7 @@ def search():
         return render_template('search.html', search_term=search_term, form=form, results=results)
     return render_template('search.html', form=form)
 
+
 # Rating page for each anime
 @app.route('/<anime_name>', methods=['GET', 'POST'])
 @login_required
@@ -129,5 +134,12 @@ def display_anime(anime_name):
                     db.session.commit()
             return redirect(url_for('search'))
 
-
     return render_template('anime.html', anime=anime, form=form)
+
+
+# Give anime recommendations to users
+@app.route('/recommend', methods=['GET', 'POST'])
+@login_required
+def recommend():
+    user_id = current_user.id
+    ratings = Ratings.query.filter_by(user_id=user_id).all()
