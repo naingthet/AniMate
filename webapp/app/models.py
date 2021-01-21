@@ -62,8 +62,10 @@ def load_user(id):
 # Storing User Ratings
 class Ratings(db.Model):
     id = db.Column(db.Integer, index=True, primary_key=True)
-    #anime_id = db.Column(db.Integer, db.ForeignKey('animes.id'))
+    anime_id = db.Column(db.Integer, db.ForeignKey('animes.id'))
     anime_name = db.Column(db.String(256), db.ForeignKey('animes.name'))
+    anime_id_rel = db.relationship('Animes', foreign_keys=[anime_id])
+    anime_name_rel = db.relationship('Animes', foreign_keys=[anime_name])
     user_rating = db.Column(db.Integer)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
 
@@ -81,7 +83,7 @@ class Animes(SearchableMixin, db.Model):
     episodes = db.Column(db.String)
     avg_rating = db.Column(db.Float)
     members = db.Column(db.Integer)
-    ratings = db.relationship('Ratings', backref='anime_info', lazy='dynamic')
+    #ratings = db.relationship('Ratings', backref='anime_info', lazy='dynamic')
 
     def __repr__(self):
         return '<Anime: {}>'.format(self.name)

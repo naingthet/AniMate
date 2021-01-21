@@ -120,19 +120,18 @@ def display_anime(anime_name):
     form = RatingForm(csrf=False)
 
     if form.validate_on_submit():
-        new_rating = form.rating.data
+        new_rating = form.rating.data  # New rating
+        # Upon submission, delete older ratings for the anime
+        prev_ratings = Ratings.query.filter_by(anime_name=anime_name, user_id=user_id)
+        if prev_ratings:
+            for rating in prev_ratings:
+                db.session.delete(rating)
+                db.session.commit()
         if new_rating not in ['None', None]:
-            r = Ratings(anime_name=anime.name, user_rating=new_rating, user_id=user_id)
+            r = Ratings(anime_id=anime.id, anime_name=anime.name, user_rating=new_rating, user_id=user_id)
             db.session.add(r)
             db.session.commit()
-            return redirect(url_for('search'))
-        elif new_rating in ['None', None]:
-            ratings = Ratings.query.filter_by(anime_name=anime_name, user_id=user_id)
-            if ratings:
-                for rating in ratings:
-                    db.session.delete(rating)
-                    db.session.commit()
-            return redirect(url_for('search'))
+        return redirect(url_for('search'))
 
     return render_template('anime.html', anime=anime, form=form)
 
