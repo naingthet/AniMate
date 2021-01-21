@@ -99,7 +99,7 @@ def search():
         user_id = current_user.id
         for i in results:
             anime_name = i.name
-            rating = Ratings.query.filter_by(anime_name=anime_name, user_id=user_id).first()
+            rating = Ratings.query.filter_by(anime_name=anime_name, user_id=user_id).order_by(Ratings.id.desc()).first()
             if rating:
                 i.user_rating = rating.user_rating
             else:
@@ -117,10 +117,18 @@ def display_anime(anime_name):
 
     if form.validate_on_submit():
         new_rating = form.rating.data
-        if new_rating != None or "None":
+        if new_rating not in ['None', None]:
             r = Ratings(anime_name=anime.name, user_rating=new_rating, user_id=user_id)
             db.session.add(r)
             db.session.commit()
             return redirect(url_for('search'))
+        elif new_rating in ['None', None]:
+            ratings = Ratings.query.filter_by(anime_name=anime_name, user_id=user_id)
+            if ratings:
+                for rating in ratings:
+                    db.session.delete(rating)
+                    db.session.commit()
+            return redirect(url_for('search'))
+
 
     return render_template('anime.html', anime=anime, form=form)

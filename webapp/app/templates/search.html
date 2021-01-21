@@ -35,7 +35,9 @@
                                 <td>{{ anime.episodes }}</td>
                                 <td>{{ anime.avg_rating }}</td>
                                 {% if anime.user_rating %}
-                                <td style="color: var(--purple);font-size: 20px;text-align: center;"><strong>{{ anime.user_rating }}</strong></td>
+                                <td style="color: var(--purple);font-size: 20px;text-align: center;"><strong>
+                                    {{ anime.user_rating }}<br><a href="/{{ anime.name }}">Change Rating</a></strong>
+                                </td>
                                 {% else %}
                                     <td style="color: var(--purple);font-size: 20px;text-align: center;"><strong>
                                         <a href="/{{ anime.name }}">Rate</a></strong></td>
