@@ -142,3 +142,13 @@ app.db
 animate.log*
 settings.json*
 .vscode
+
+
+# Ignore raw data files
+anime_raw.csv*
+rating_raw.csv*
+
+# Ignore anaconda files
+envs/
+conda-meta/
+.nonadmin*
