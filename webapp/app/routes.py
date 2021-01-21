@@ -6,7 +6,6 @@ from flask import request, g
 from werkzeug.urls import url_parse
 from app.forms import LoginForm, RegistrationForm, ResetPasswordRequestForm, ResetPasswordForm, SearchForm, RatingForm
 from app.email import send_password_reset_email
-from app.seed import add_rating
 
 
 # Index (Home Page)
