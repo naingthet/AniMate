@@ -142,3 +142,5 @@ app.db
 animate.log*
 settings.json*
 .vscode
+
+envs/
