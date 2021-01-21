@@ -145,6 +145,7 @@ settings.json*
 
 
 # Ignore raw data files
+raw_data/
 anime_raw.csv*
 rating_raw.csv*
 
