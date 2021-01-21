@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+
+<main class="page blog-post-list">
+    <section class="clean-block clean-blog-list dark">
+        <div class="container">
+            <div class="block-heading">
+                <h2 class="text-info">Rate</h2>
+                <p>Search for animes so that you can rate them!</p>
+            </div>
+            <div class="block-content" style="text-align: left;">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th id="trs-hd" style="background: var(--purple);color: var(--white);border-style: solid;">Name</th>
+                            <th id="trs-hd" style="width: 300px;background: var(--purple);color: var(--white);border-style: solid;">Genre</th>
+                            <th id="trs-hd" style="background: var(--purple);color: var(--white);border-style: solid;">Type</th>
+                            <th id="trs-hd" style="background: var(--purple);color: var(--white);border-style: solid;">Episodes</th>
+                            <th id="trs-hd" style="background: var(--purple);color: var(--white);border-style: solid;">Average Rating</th>
+                            <th id="trs-hd" style="width: 200px;background: var(--purple);color: var(--white);border-style: solid;">Your Rating (1-10)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ anime.name }}</td>
+                            <td>{{ anime.genre }}</td>
+                            <td>{{ anime.type }}</td>
+                            <td>{{ anime.episodes }}</td>
+                            <td>{{ anime.avg_rating }}</td>
+                            <td style="color: var(--purple);font-size: 20px;text-align: center;"><strong>
+                            {{ wtf.quick_form(form, button_map={'submit': 'primary'}) }}</strong></td>
+                        </tr>
+                        <tr></tr>
+                    </tbody>
+                </table>
+        </div>
+    </section>
+</main>
+
+{% endblock %}

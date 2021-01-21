@@ -1,11 +1,12 @@
-from flask import render_template, flash, redirect, url_for, request
+from flask import render_template, flash, redirect, url_for, request, session
 from app import app, db
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User, Ratings, Animes
 from flask import request, g
 from werkzeug.urls import url_parse
-from app.forms import LoginForm, RegistrationForm, ResetPasswordRequestForm, ResetPasswordForm, SearchForm
+from app.forms import LoginForm, RegistrationForm, ResetPasswordRequestForm, ResetPasswordForm, SearchForm, RatingForm
 from app.email import send_password_reset_email
+from app.seed import add_rating
 
 
 # Index (Home Page)
@@ -85,6 +86,7 @@ def reset_password(token):
         return redirect(url_for('login'))
     return render_template('reset_password.html', form=form)
 
+
 # Search
 @app.route('/search', methods=['GET', 'POST'])
 @login_required
@@ -92,7 +94,7 @@ def search():
     form = SearchForm(csrf=False)
     if form.validate_on_submit():
         search_term = form.search.data
-        query, total = Animes.search(search_term, 1, 5)
+        query, total = Animes.search(search_term, 1, 10)
         results = query.all()
         user_id = current_user.id
         for i in results:
@@ -104,3 +106,32 @@ def search():
                 i.user_rating = None
         return render_template('search.html', search_term=search_term, form=form, results=results)
     return render_template('search.html', form=form)
+
+# Rating page for each anime
+@app.route('/rate', methods=['GET', 'POST'])
+@login_required
+def rate():
+    anime_name = request.args.get('anime_name', None)
+    anime = Animes.query.filter_by(name=anime_name).first()
+    user_id = current_user.id
+
+    form = RatingForm(csrf=False)
+
+    if form.validate_on_submit:
+        new_rating = form.rating.data
+        if new_rating in range(1, 11):
+            r = Ratings(anime_name=anime_name, user_rating=new_rating, user_id=user_id)
+            db.session.add(r)
+            db.session.commit()
+            return redirect(url_for('search'))
+    return render_template('rate.html', anime=anime, form=form)
+
+
+# rating_form = RatingForm(csrf=False)
+#             if rating_form.is_submitted():
+#                 new_rating = rating_form.rating.data
+#                 if new_rating in range(1, 11):
+#                     r = Ratings(anime_name=anime_name, user_rating=new_rating, user_id=user_id)
+#                     db.session.add(r)
+#                     db.session.commit()
+#                     return redirect(url_for('search'))

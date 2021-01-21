@@ -1,5 +1,5 @@
 import json
-from app.models import Animes 
+from app.models import Animes, Ratings
 from app import db
 
 def load_anime_info(filename):
@@ -18,3 +18,7 @@ def load_anime_info(filename):
         
         db.session.commit()
 
+def add_rating(anime_name, user_rating, user_id):
+    rating = Animes(anime_name=anime_name, user_rating=user_rating, user_id=user_id)
+    db.session.add(rating)
+    db.session.commit()

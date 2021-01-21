@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo
 from app.models import User
 from flask import request
@@ -48,3 +48,8 @@ class SearchForm(FlaskForm):
     #     if 'csrf_enabled' not in kwargs:
     #         kwargs['csrf_enabled'] = False
     #     super(SearchForm, self).__init__(*args, **kwargs)
+
+class RatingForm(FlaskForm):
+    choices = [None, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    rating = SelectField("Rate it!", choices = choices, validators=[DataRequired()])
+    submit = SubmitField('Submit')

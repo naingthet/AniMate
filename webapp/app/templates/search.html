@@ -18,12 +18,12 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>Anime Name</th>
-                                <th>Genre</th>
-                                <th>Type</th>
-                                <th>Episodes</th>
-                                <th>Average Rating</th>
-                                <th>Your Rating (1-10)</th>
+                                <th id="trs-hd" style="background: var(--purple);color: var(--white);border-style: solid;">Name</th>
+                                <th id="trs-hd" style="width: 300px;background: var(--purple);color: var(--white);border-style: solid;">Genre</th>
+                                <th id="trs-hd" style="background: var(--purple);color: var(--white);border-style: solid;">Type</th>
+                                <th id="trs-hd" style="background: var(--purple);color: var(--white);border-style: solid;">Episodes</th>
+                                <th id="trs-hd" style="background: var(--purple);color: var(--white);border-style: solid;">Average Rating</th>
+                                <th id="trs-hd" style="width: 200px;background: var(--purple);color: var(--white);border-style: solid;">Your Rating (1-10)</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -37,7 +37,8 @@
                                 {% if result.user_rating %}
                                 <td style="color: var(--purple);font-size: 20px;text-align: center;"><strong>{{ result.user_rating }}</strong></td>
                                 {% else %}
-                                <td><input type="number" placeholder="Your Rating"/></td>
+                                    <td style="color: var(--purple);font-size: 20px;text-align: center;"><strong>
+                                        <a href="{{ url_for('rate', anime_name=result.name) }}">Rate</a></strong></td>
                                 {% endif %}
                             </tr>
                             {% endfor %}
