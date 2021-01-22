@@ -86,6 +86,7 @@ def export_clean_anime(filename):
 
     anime_df.to_json('data/clean_data/anime.json', orient='records')
     anime_df.to_csv('data/clean_data/anime.csv', index=False)
+    anime_df['id'].to_csv('data/clean_data/anime_ids.csv', index=False)
 
 
 if __name__ == '__main__':

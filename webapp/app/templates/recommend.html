@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+
+    <main class="page blog-post-list">
+        <section class="clean-block clean-blog-list dark">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info">Recommendations</h2>
+                    <p>Search for animes so that you can rate them!</p>
+                </div>
+                <div class="block-content" style="text-align: left;">
+            <br><br>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th id="trs-hd" style="background: var(--purple);color: var(--white);border-style: solid;">Name</th>
+                                <th id="trs-hd" style="width: 300px;background: var(--purple);color: var(--white);border-style: solid;">Genre</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for prediction in user_predictions %}
+                            <tr>
+                                <td>{{ prediction.anime_id }}</td>
+                                <td>{{ prediction.match }}</td>
+                            </tr>
+                            {% endfor %}
+                            <tr></tr>
+                        </tbody>
+                    </table>
+            </div>
+        </section>
+    </main>
+
+{% endblock %}
