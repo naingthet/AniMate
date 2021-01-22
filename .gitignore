@@ -144,14 +144,14 @@ settings.json*
 .vscode
 
 # Ignore raw data files
-raw_data/
 anime_raw.csv*
 rating_raw.csv*
-clean_data/
-/webapp/app/data/
-/webapp/app/algo/
-webapp/app/data/clean_data/anime.csv
-webapp/app/data/clean_data/anime.json
-webapp/app/data/clean_data/anime_ids.csv
-webapp/app/data/clean_data/ratings.csv
+anime.csv*
+anime.json*
+anime_ids.csv*
+ratings.csv*
+.idea/
+.vs/
+svd_model*
+
 
