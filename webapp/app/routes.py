@@ -144,7 +144,6 @@ def display_anime(anime_name):
 @login_required
 def recommend():
     model_path = 'app/algo/svd_model'
-    anime_path = 'app/data/clean_data/anime.csv'
     anime_ids_path = 'app/data/clean_data/anime_ids.csv'
 
     # Load trained model

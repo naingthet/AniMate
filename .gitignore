@@ -153,5 +153,5 @@ ratings.csv*
 .idea/
 .vs/
 svd_model*
-
+logs/
 
