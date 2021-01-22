@@ -160,9 +160,11 @@ def recommend():
     rating_df = pd.DataFrame(ratings, columns=['user_id', 'anime_id', 'rating'])
 
     # Identify the animes the user has not seen yet
-    anime_ids = pd.read_csv(anime_ids_path)['id'].to_numpy()
+    anime_df = pd.read_csv(anime_ids_path)
+    anime_ids = anime_df['id'].to_numpy()
     animes_rated_by_user = rating_df['anime_id'].values
     animes_to_predict = np.setdiff1d(anime_ids, animes_rated_by_user)
+    name_id_key = dict(anime_df.values)
 
     # Create user testset and predict
     user_testset = [[user_id, anime_id, None] for anime_id in animes_to_predict]
@@ -170,6 +172,9 @@ def recommend():
     pred_ratings = np.array([pred.est for pred in predictions])
 
     user_predictions = pd.DataFrame((zip(animes_to_predict, pred_ratings*10)), columns=['anime_id', 'match'])
-    user_predictions = user_predictions.sort_values('match', ascending=False).iloc[:20].to_dict(orient='records')
+    user_predictions = user_predictions.sort_values('match', ascending=False).iloc[:20]
+    user_predictions['anime_name'] = user_predictions['anime_id'].apply(lambda x: name_id_key.get(x))
+    user_predictions['match'] = user_predictions['match'].apply(lambda x: round(x, 1))
+    user_predictions = user_predictions.to_dict(orient='records')
 
     return render_template('recommend.html', user_predictions=user_predictions)

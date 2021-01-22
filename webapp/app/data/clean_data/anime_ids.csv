@@ -1,929 +1,929 @@
-id
-0
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
-92
-93
-94
-95
-96
-97
-98
-99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128
-129
-130
-131
-132
-133
-134
-135
-136
-137
-138
-139
-140
-141
-142
-143
-144
-145
-146
-147
-148
-149
-150
-151
-152
-153
-154
-155
-156
-157
-158
-159
-160
-161
-162
-163
-164
-165
-166
-167
-168
-169
-170
-171
-172
-173
-174
-175
-176
-177
-178
-179
-180
-181
-182
-183
-184
-185
-186
-187
-188
-189
-190
-191
-192
-193
-194
-195
-196
-197
-198
-199
-200
-201
-202
-203
-204
-205
-206
-207
-208
-209
-210
-211
-212
-213
-214
-215
-216
-217
-218
-219
-220
-221
-222
-223
-224
-225
-226
-227
-228
-229
-230
-231
-232
-233
-234
-235
-236
-237
-238
-239
-240
-241
-242
-243
-244
-245
-246
-247
-248
-249
-250
-251
-252
-253
-254
-255
-256
-257
-258
-259
-260
-261
-262
-263
-264
-265
-266
-267
-268
-269
-270
-271
-272
-273
-274
-275
-276
-277
-278
-279
-280
-281
-282
-283
-284
-285
-286
-287
-288
-289
-290
-291
-292
-293
-294
-295
-296
-297
-298
-299
-300
-301
-302
-303
-304
-305
-306
-307
-308
-309
-310
-311
-312
-313
-314
-315
-316
-317
-318
-319
-320
-321
-322
-323
-324
-325
-326
-327
-328
-329
-330
-331
-332
-333
-334
-335
-336
-337
-338
-339
-340
-341
-342
-343
-344
-345
-346
-347
-348
-349
-350
-351
-352
-353
-354
-355
-356
-357
-358
-359
-360
-361
-362
-363
-364
-365
-366
-367
-368
-369
-370
-371
-372
-373
-374
-375
-376
-377
-378
-379
-380
-381
-382
-383
-384
-385
-386
-387
-388
-389
-390
-391
-392
-393
-394
-395
-396
-397
-398
-399
-400
-401
-402
-403
-404
-405
-406
-407
-408
-409
-410
-411
-412
-413
-414
-415
-416
-417
-418
-419
-420
-421
-422
-423
-424
-425
-426
-427
-428
-429
-430
-431
-432
-433
-434
-435
-436
-437
-438
-439
-440
-441
-442
-443
-444
-445
-446
-447
-448
-449
-450
-451
-452
-453
-454
-455
-456
-457
-458
-459
-460
-461
-462
-463
-464
-465
-466
-467
-468
-469
-470
-471
-472
-473
-474
-475
-476
-477
-478
-479
-480
-481
-482
-483
-484
-485
-486
-487
-488
-489
-490
-491
-492
-493
-494
-495
-496
-497
-498
-499
-500
-501
-502
-503
-504
-505
-506
-507
-508
-509
-510
-511
-512
-513
-514
-515
-516
-517
-518
-519
-520
-521
-522
-523
-524
-525
-526
-527
-528
-529
-530
-531
-532
-533
-534
-535
-536
-537
-538
-539
-540
-541
-542
-543
-544
-545
-546
-547
-548
-549
-550
-551
-552
-553
-554
-555
-556
-557
-558
-559
-560
-561
-562
-563
-564
-565
-566
-567
-568
-569
-570
-571
-572
-573
-574
-575
-576
-577
-578
-579
-580
-581
-582
-583
-584
-585
-586
-587
-588
-589
-590
-591
-592
-593
-594
-595
-596
-597
-598
-599
-600
-601
-602
-603
-604
-605
-606
-607
-608
-609
-610
-611
-612
-613
-614
-615
-616
-617
-618
-619
-620
-621
-622
-623
-624
-625
-626
-627
-628
-629
-630
-631
-632
-633
-634
-635
-636
-637
-638
-639
-640
-641
-642
-643
-644
-645
-646
-647
-648
-649
-650
-651
-652
-653
-654
-655
-656
-657
-658
-659
-660
-661
-662
-663
-664
-665
-666
-667
-668
-669
-670
-671
-672
-673
-674
-675
-676
-677
-678
-679
-680
-681
-682
-683
-684
-685
-686
-687
-688
-689
-690
-691
-692
-693
-694
-695
-696
-697
-698
-699
-700
-701
-702
-703
-704
-705
-706
-707
-708
-709
-710
-711
-712
-713
-714
-715
-716
-717
-718
-719
-720
-721
-722
-723
-724
-725
-726
-727
-728
-729
-730
-731
-732
-733
-734
-735
-736
-737
-738
-739
-740
-741
-742
-743
-744
-745
-746
-747
-748
-749
-750
-751
-752
-753
-754
-755
-756
-757
-758
-759
-760
-761
-762
-763
-764
-765
-766
-767
-768
-769
-770
-771
-772
-773
-774
-775
-776
-777
-778
-779
-780
-781
-782
-783
-784
-785
-786
-787
-788
-789
-790
-791
-792
-793
-794
-795
-796
-797
-798
-799
-800
-801
-802
-803
-804
-805
-806
-807
-808
-809
-810
-811
-812
-813
-814
-815
-816
-817
-818
-819
-820
-821
-822
-823
-824
-825
-826
-827
-828
-829
-830
-831
-832
-833
-834
-835
-836
-837
-838
-839
-840
-841
-842
-843
-844
-845
-846
-847
-848
-849
-850
-851
-852
-853
-854
-855
-856
-857
-858
-859
-860
-861
-862
-863
-864
-865
-866
-867
-868
-869
-870
-871
-872
-873
-874
-875
-876
-877
-878
-879
-880
-881
-882
-883
-884
-885
-886
-887
-888
-889
-890
-891
-892
-893
-894
-895
-896
-897
-898
-899
-900
-901
-902
-903
-904
-905
-906
-907
-908
-909
-910
-911
-912
-913
-914
-915
-916
-917
-918
-919
-920
-921
-922
-923
-924
-925
-926
-927
+id,name
+0,Death Note
+1,Shingeki no Kyojin
+2,Sword Art Online
+3,Fullmetal Alchemist: Brotherhood
+4,Angel Beats!
+5,Code Geass: Hangyaku no Lelouch
+6,Naruto
+7,SteinsGate
+8,Mirai Nikki (TV)
+9,Toradora!
+10,Bleach
+11,Elfen Lied
+12,Tokyo Ghoul
+13,No Game No Life
+14,Fullmetal Alchemist
+15,Fairy Tail
+16,Ao no Exorcist
+17,Soul Eater
+18,Code Geass: Hangyaku no Lelouch R2
+19,Clannad
+20,Tengen Toppa Gurren Lagann
+21,Durarara!!
+22,One Punch Man
+23,Sword Art Online II
+24,Highschool of the Dead
+25,Another
+26,Naruto: Shippuuden
+27,Noragami
+28,Psycho-Pass
+29,Kill la Kill
+30,One Piece
+31,Akame ga Kill!
+32,Cowboy Bebop
+33,Bakemonogatari
+34,Sen to Chihiro no Kamikakushi
+35,Ano Hi Mita Hana no Namae wo Bokutachi wa Mada Shiranai
+36,Mahou Shoujo MadokaMagica
+37,Neon Genesis Evangelion
+38,Guilty Crown
+39,Clannad: After Story
+40,FateZero
+41,Deadman Wonderland
+42,Darker than Black: Kuro no Keiyakusha
+43,Suzumiya Haruhi no Yuuutsu
+44,Hunter x Hunter (2011)
+45,Kiseijuu: Sei no Kakuritsu
+46,Kuroshitsuji
+47,Ouran Koukou Host Club
+48,Shigatsu wa Kimi no Uso
+49,Hataraku Maou-sama!
+50,Tokyo Ghoul A
+51,Boku dake ga Inai Machi
+52,High School DxD
+53,Chuunibyou demo Koi ga Shitai!
+54,Kaichou wa Maid-sama!
+55,Samurai Champloo
+56,Log Horizon
+57,K-On!
+58,Death Parade
+59,Sakurasou no Pet na Kanojo
+60,Dragon Ball Z
+61,Fatestay night
+62,Hyouka
+63,Baccano!
+64,Higurashi no Naku Koro ni
+65,Kyoukai no Kanata
+66,Re:Zero kara Hajimeru Isekai Seikatsu
+67,Yahari Ore no Seishun Love Comedy wa Machigatteiru
+68,Tonari no Kaibutsu-kun
+69,Shokugeki no Souma
+70,Nisekoi
+71,Zero no Tsukaima
+72,Zankyou no Terror
+73,FateZero 2nd Season
+74,Mononoke Hime
+75,Kuroko no Basket
+76,Gintama
+77,Dungeon ni Deai wo Motomeru no wa Machigatteiru Darou ka
+78,Ookami to Koushinryou
+79,DGray-man
+80,Howl no Ugoku Shiro
+81,Black Lagoon
+82,Nanatsu no Taizai
+83,Btooom!
+84,Boku wa Tomodachi ga Sukunai
+85,Accel World
+86,Byousoku 5 Centimeter
+87,Ore no Imouto ga Konnani Kawaii Wake ga Nai
+88,Black Bullet
+89,Magi: The Labyrinth of Magic
+90,Claymore
+91,Dragon Ball
+92,Owari no Seraph
+93,Toaru Majutsu no Index
+94,Ansatsu Kyoushitsu (TV)
+95,Charlotte
+96,Kimi ni Todoke
+97,Hellsing
+98,LuckyStar
+99,FLCL
+100,Date A Live
+101,Baka to Test to Shoukanjuu
+102,Mushishi
+103,Noragami Aragoto
+104,Rosario to Vampire
+105,Danganronpa: Kibou no Gakuen to Zetsubou no Koukousei The Animation
+106,Hellsing Ultimate
+107,Shakugan no Shana
+108,K
+109,Kore wa Zombie Desu ka
+110,Gekkan Shoujo Nozaki-kun
+111,NHK ni Youkoso!
+112,Toki wo Kakeru Shoujo
+113,Shinsekai yori
+114,Vampire Knight
+115,Mahouka Koukou no Rettousei
+116,Kami nomi zo Shiru Sekai
+117,Haikyuu!!
+118,Kokoro Connect
+119,Trigun
+120,Boku no Hero Academia
+121,InuYasha
+122,School Days
+123,Higashi no Eden
+124,Golden Time
+125,Tonari no Totoro
+126,Great Teacher Onizuka
+127,Fatestay night: Unlimited Blade Works
+128,Chobits
+129,High School DxD New
+130,Free!
+131,Ergo Proxy
+132,Nisemonogatari
+133,Zetsuen no Tempest
+134,Danshi Koukousei no Nichijou
+135,Katekyo Hitman Reborn!
+136,Watashi ga Motenai no wa Dou Kangaetemo Omaera ga Warui!
+137,Full Metal Panic!
+138,Fairy Tail (2014)
+139,IS: Infinite Stratos
+140,Nichijou
+141,Koutetsujou no Kabaneri
+142,Shiki
+143,Monster
+144,Bakuman
+145,K-On!!
+146,Magi: The Kingdom of Magic
+147,Kono Subarashii Sekai ni Shukufuku wo!
+148,"Gate: Jieitai Kanochi nite, Kaku Tatakaeri"
+149,Overlord
+150,AldnoahZero
+151,Suzumiya Haruhi no Yuuutsu (2009)
+152,Kuroko no Basket 2nd Season
+153,Fruits Basket
+154,Blood Lad
+155,Suzumiya Haruhi no Shoushitsu
+156,Eureka Seven
+157,To LOVE-Ru
+158,Zero no Tsukaima: Futatsuki no Kishi
+159,LovelyComplex
+160,Kuroshitsuji II
+161,Sukitte Ii na yo
+162,Gosick
+163,Strike the Blood
+164,Toaru Kagaku no Railgun
+165,Pandora Hearts
+166,Pokemon
+167,Psycho-Pass 2
+168,Prison School
+169,Sora no Otoshimono
+170,Ao Haru Ride
+171,Dragon Ball GT
+172,Berserk
+173,Ookami Kodomo no Ame to Yuki
+174,Barakamon
+175,Nagi no Asukara
+176,Summer Wars
+177,Ghost in the Shell
+178,Yahari Ore no Seishun Love Comedy wa Machigatteiru Zoku
+179,Sankarea
+180,Darker than Black: Ryuusei no Gemini
+181,Kekkai Sensen
+182,Rurouni Kenshin: Meiji Kenkaku Romantan
+183,Rokka no Yuusha
+184,Mondaiji-tachi ga Isekai kara Kuru Sou Desu yo
+185,Higurashi no Naku Koro ni Kai
+186,Beelzebub
+187,Seitokai Yakuindomo
+188,Amagi Brilliant Park
+189,Akatsuki no Yona
+190,Inu x Boku SS
+191,Akira
+192,Serial Experiments Lain
+193,Log Horizon 2nd Season
+194,Neon Genesis Evangelion: The End of Evangelion
+195,Kiss x Sis (TV)
+196,Boku wa Tomodachi ga Sukunai Next
+197,Plastic Memories
+198,Hai to Gensou no Grimgar
+199,Zero no Tsukaima: Princesses no Rondo
+200,Gangsta
+201,Natsume Yuujinchou
+202,Ookami to Koushinryou II
+203,Chuunibyou demo Koi ga Shitai! Ren
+204,Trinity Seven
+205,Blood
+206,Katanagatari
+207,Fatestay night: Unlimited Blade Works 2nd Season
+208,Monogatari Series: Second Season
+209,Kaze no Stigma
+210,Rosario to Vampire Capu2
+211,Ichiban Ushiro no Daimaou
+212,Black Lagoon: The Second Barrage
+213,ReLIFE
+214,Hentai Ouji to Warawanai Neko
+215,Ore Monogatari!!
+216,Kimi no Na wa
+217,BlackRock Shooter (TV)
+218,Mekakucity Actors
+219,Vampire Knight Guilty
+220,Kiznaiver
+221,Hotarubi no Mori e
+222,Nana
+223,YuuYuuHakusho
+224,Usagi Drop
+225,Ore no Imouto ga Konnani Kawaii Wake ga Nai
+226,Air Gear
+227,Evangelion: 10 You Are (Not) Alone
+228,Ghost in the Shell: Stand Alone Complex
+229,Kami nomi zo Shiru Sekai II
+230,Shimoneta to Iu Gainen ga Sonzai Shinai Taikutsu na Sekai
+231,Mob Psycho 100
+232,Yamada-kun to 7-nin no Majo (TV)
+233,B Gata H Kei
+234,God Eater
+235,SteinsGate Movie: Fuka Ryouiki no Déjà vu
+236,Mayo Chiki!
+237,High School DxD BorN
+238,JoJo no Kimyou na Bouken (TV)
+239,Owari no Seraph: Nagoya Kessen-hen
+240,Kotonoha no Niwa
+241,Kamisama Hajimemashita
+242,Durarara!!x2 Shou
+243,Working!!
+244,Air
+245,Rakudai Kishi no Cavalry
+246,Bungou Stray Dogs
+247,Fullmetal Alchemist: The Conqueror of Shamballa
+248,Date A Live II
+249,Shokugeki no Souma: Ni no Sara
+250,Shakugan no Shana II (Second)
+251,Kuroko no Basket 3rd Season
+252,Toaru Majutsu no Index II
+253,Baka to Test to Shoukanjuu Ni!
+254,Sekirei
+255,Evangelion: 20 You Can (Not) Advance
+256,Digimon Adventure
+257,Monster Musume no Iru Nichijou
+258,Cardcaptor Sakura
+259,Nisekoi:
+260,Kore wa Zombie Desu ka of the Dead
+261,"Ore no Nounai Sentakushi ga, Gakuen Love Comedy wo Zenryoku de Jama Shiteiru"
+262,Haikyuu!! Second Season
+263,Kara no Kyoukai 1: Fukan Fuukei
+264,School Rumble
+265,Grisaia no Kajitsu
+266,Ansatsu Kyoushitsu (TV) 2nd Season
+267,Hotaru no Haka
+268,Sayonara Zetsubou Sensei
+269,ChäoSHEAd
+270,Zero no Tsukaima F
+271,Special A
+272,Nekomonogatari: Kuro
+273,"Yosuga no Sora: In Solitude, Where We Are Least Alone"
+274,Jigoku Shoujo
+275,Tasogare Otome x Amnesia
+276,Shinmai Maou no Testament
+277,Hidan no Aria
+278,Kimi ni Todoke 2nd Season
+279,Wolfs Rain
+280,Sakamoto desu ga
+281,Tokyo Ravens
+282,Full Metal Panic Fumoffu
+283,Azumanga Daioh
+284,Suisei no Gargantia
+285,Ano Natsu de Matteru
+286,"Dakara Boku wa, H ga Dekinai"
+287,Shaman King
+288,Absolute Duo
+289,Gakusen Toshi Asterisk
+290,Musaigen no Phantom World
+291,No6
+292,Devil May Cry
+293,Hunter x Hunter
+294,Orange
+295,Gantz
+296,Seto no Hanayome
+297,Hitsugi no Chaika
+298,Maoyuu Maou Yuusha
+299,Paprika
+300,Kanon (2006)
+301,Arakawa Under the Bridge
+302,Ajin
+303,"Clannad: Mou Hitotsu no Sekai, Tomoyo-hen"
+304,Gokukoku no Brynhildr
+305,Bokura wa Minna Kawaisou
+306,SteinsGate: Oukoubakko no Poriomania
+307,Freezing
+308,Phantom: Requiem for the Phantom
+309,Shuffle!
+310,Chihayafuru
+311,Himouto! Umaru-chan
+312,Hajime no Ippo
+313,Panty &amp Stocking with Garterbelt
+314,Akagami no Shirayuki-hime
+315,Amagami SS
+316,Nodame Cantabile
+317,C: The Money of Soul and Possibility Control
+318,Mawaru Penguindrum
+319,Love Hina
+320,Ore no Kanojo to Osananajimi ga Shuraba Sugiru
+321,Hagure Yuusha no Aesthetica
+322,Saenai Heroine no Sodatekata
+323,Full Metal Panic! The Second Raid
+324,Love Live! School Idol Project
+325,Haiyore! Nyaruko-san
+326,D-Frag!
+327,"Gate: Jieitai Kanochi nite, Kaku Tatakaeri 2nd Season"
+328,Arslan Senki (TV)
+329,Majo no Takkyuubin
+330,Campione!: Matsurowanu Kamigami to Kamigoroshi no Maou
+331,Bleach Movie 1: Memories of Nobody
+332,Bakuman 2nd Season
+333,Gintama
+334,ef: A Tale of Memories
+335,Tenkuu no Shiro Laputa
+336,xxxHOLiC
+337,Free!: Eternal Summer
+338,Black Cat
+339,Hanasaku Iroha
+340,Denpa Onna to Seishun Otoko
+341,AldnoahZero 2nd Season
+342,Beck
+343,Yuru Yuri
+344,IS: Infinite Stratos 2
+345,Shirobako
+346,Sora no Otoshimono: Forte
+347,Kämpfer
+348,Sakamichi no Apollon
+349,Ben-To
+350,Bishoujo Senshi Sailor Moon
+351,Ookami-san to Shichinin no Nakama-tachi
+352,Seikon no Qwaser
+353,Dagashi Kashi
+354,Ookami Shoujo to Kuro Ouji
+355,Ga-Rei: Zero
+356,Hetalia Axis Powers
+357,Inou-Battle wa Nichijou-kei no Naka de
+358,Shingeki no Bahamut: Genesis
+359,Kaze no Tani no Nausicaä
+360,Kami nomi zo Shiru Sekai: Megami-hen
+361,Nyan Koi!
+362,Chrno Crusade
+363,91 Days
+364,Highschool of the Dead: Drifters of the Dead
+365,Gake no Ue no Ponyo
+366,Gakkougurashi!
+367,Isshuukan Friends
+368,Rainbow: Nisha Rokubou no Shichinin
+369,Angel Beats! Specials
+370,Final Fantasy VII: Advent Children
+371,Little Busters!
+372,"Clannad: After Story - Mou Hitotsu no Sekai, Kyou-hen"
+373,Mousou Dairinin
+374,Cowboy Bebop: Tengoku no Tobira
+375,Jormungand
+376,Toaru Kagaku no Railgun S
+377,Netoge no Yome wa Onnanoko ja Nai to Omotta
+378,Machine-Doll wa Kizutsukanai
+379,Itazura na Kiss
+380,Darker than Black: Kuro no Keiyakusha Gaiden
+381,To LOVE-Ru Darkness
+382,Mahou Shoujo MadokaMagica Movie 3: Hangyaku no Monogatari
+383,Afro Samurai
+384,Mirai Nikki Redial
+385,Evangelion: 30 You Can (Not) Redo
+386,Code:Breaker
+387,Motto To LOVE-Ru
+388,Persona 4 the Animation
+389,Skip Beat!
+390,Bleach Movie 2: The DiamondDust Rebellion - Mou Hitotsu no Hyourinmaru
+391,Tsubasa Chronicle
+392,Hibike! Euphonium
+393,Amnesia
+394,Angel Beats!: Another Epilogue
+395,11eyes
+396,Bakuman 3rd Season
+397,Hamatora The Animation
+398,Non Non Biyori
+399,Mikakunin de Shinkoukei
+400,Oda Nobuna no Yabou
+401,Shakugan no Shana III (Final)
+402,Durarara!!x2 Ten
+403,YuGiOh! Duel Monsters
+404,Outbreak Company
+405,Densetsu no Yuusha no Densetsu
+406,BlackRock Shooter (OVA)
+407,Hachimitsu to Clover
+408,Kamisama no Memochou
+409,Hayate no Gotoku!
+410,Dimension W
+411,MM!
+412,Rurouni Kenshin: Meiji Kenkaku Romantan - Tsuioku-hen
+413,Shijou Saikyou no Deshi Kenichi
+414,Sousei no Onmyouji
+415,Rozen Maiden
+416,Tamako Market
+417,Acchi Kocchi (TV)
+418,Akuma no Riddle
+419,DNAngel
+420,Umineko no Naku Koro ni
+421,Corpse Party: Tortured Souls - Bougyakusareta Tamashii no Jukyou
+422,Ghost Hunt
+423,07-Ghost
+424,Kiss x Sis
+425,Stranger: Mukou Hadan
+426,Bokura ga Ita
+427,Hanamonogatari
+428,Seirei Tsukai no Blade Dance
+429,Kotoura-san
+430,SpaceDandy
+431,Canaan
+432,Nurarihyon no Mago
+433,Kuroshitsuji: Book of Circus
+434,Yojouhan Shinwa Taikei
+435,Bleach Movie 3: Fade to Black - Kimi no Na wo Yobu
+436,Kanokon
+437,Danna ga Nani wo Itteiru ka Wakaranai Ken
+438,Kamisama no Inai Nichiyoubi
+439,Sword Art Online: Extra Edition
+440,Tokyo Magnitude 80
+441,Shugo Chara!
+442,Shingeki no Kyojin OVA
+443,Dance in the Vampire Bund
+444,Haibane Renmei
+445,Naruto Movie 1: Dai Katsugeki!! Yuki Hime Shinobu Houjou Dattebayo!
+446,Mobile Suit Gundam 00
+447,Digimon Adventure 02
+448,JoJo no Kimyou na Bouken: Stardust Crusaders
+449,Omamori Himari
+450,True Tears
+451,Blood-C
+452,Sidonia no Kishi
+453,Junjou Romantica
+454,Perfect Blue
+455,Working!!
+456,Binbougami ga!
+457,Mayoiga
+458,Bokusatsu Tenshi Dokuro-chan
+459,Dragon Ball Kai
+460,Maji de Watashi ni Koi Shinasai!
+461,Gin no Saji
+462,Elfen Lied Special
+463,Yuusha ni Narenakatta Ore wa Shibushibu Shuushoku wo Ketsui Shimashita
+464,Durarara!!x2 Ketsu
+465,K-On! Movie
+466,Myself Yourself
+467,K: Return of Kings
+468,Detective Conan
+469,Madan no Ou to Vanadis
+470,Kara no Kyoukai 2: Satsujin Kousatsu (Zen)
+471,Gintama
+472,Mirai Nikki
+473,Zoku Natsume Yuujinchou
+474,Ghost in the Shell: Stand Alone Complex 2nd GIG
+475,Sekirei: Pure Engagement
+476,Trinity Blood
+477,Oniichan dakedo Ai Sae Areba Kankeinai yo ne!
+478,Golden Boy
+479,Grisaia no Rakuen
+480,Little Witch Academia
+481,Dragon Ball Super
+482,Kara no Kyoukai 5: Mujun Rasen
+483,Tsukimonogatari
+484,Fatestay night Movie: Unlimited Blade Works
+485,Asu no Yoichi!
+486,Seitokai no Ichizon
+487,hackSign
+488,Medaka Box
+489,Redline
+490,Kara no Kyoukai 3: Tsuukaku Zanryuu
+491,Mangaka-san to Assistant-san to The Animation
+492,Karneval (TV)
+493,Naruto: Shippuuden Movie 1
+494,Black Lagoon: Robertas Blood Trail
+495,Kuragehime
+496,Sakura Trick
+497,Diabolik Lovers
+498,Owarimonogatari
+499,Gatchaman Crowds
+500,Nabari no Ou
+501,Tales of Zestiria the X
+502,RoboticsNotes
+503,Kokoro Connect: Michi Random
+504,Seirei no Moribito
+505,World Trigger
+506,Gunslinger Girl
+507,Arcana Famiglia
+508,Fatestay night: Unlimited Blade Works - Prologue
+509,Witch Craft Works
+510,Karin
+511,Uta noPrince-sama Maji Love 1000%
+512,Minami-ke
+513,Ranma ½
+514,Ao no Exorcist Movie
+515,Planetes
+516,Detroit Metal City
+517,Noragami OVA
+518,MariaHolic
+519,Busou Renkin
+520,Girls und Panzer
+521,Genshiken
+522,Last Exile
+523,Mahou Sensou
+524,Maken-Ki!
+525,Princess Lover!
+526,Tiger &amp Bunny
+527,"Kumo no Mukou, Yakusoku no Basho"
+528,Gankutsuou
+529,ef: A Tale of Melodies
+530,Chrome Shelled Regios
+531,Kara no Kyoukai 4: Garan no Dou
+532,Tenjou Tenge
+533,Yuri!!! on Ice
+534,Durarara!! Specials
+535,Drifters
+536,Kino no Tabi: The Beautiful World
+537,Koe no Katachi
+538,Joker Game
+539,Natsume Yuujinchou San
+540,Neon Genesis Evangelion: Death &amp Rebirth
+541,Higashi no Eden Movie I: The King of Eden
+542,Ore no Imouto ga Konnani Kawaii Wake ga Nai Specials
+543,Mushishi Zoku Shou
+544,Tanaka-kun wa Itsumo Kedaruge
+545,Ryuugajou Nanana no Maizoukin (TV)
+546,Gakusen Toshi Asterisk 2nd Season
+547,Devil Survivor 2 The Animation
+548,SKET Dance
+549,Kantai Collection: KanColle
+550,C³
+551,Baccano! Specials
+552,Fatekaleid liner PrismaIllya
+553,Pokemon: Mewtwo no Gyakushuu
+554,Nazo no Kanojo X
+555,Sakurako-san no Ashimoto ni wa Shitai ga Umatteiru
+556,Kizumonogatari I: Tekketsu-hen
+557,OnegaiTeacher
+558,Clannad Movie
+559,Higurashi no Naku Koro ni Rei
+560,Soredemo Sekai wa Utsukushii
+561,Taboo Tattoo
+562,Hyakka Ryouran: Samurai Girls
+563,Taimadou Gakuen 35 Shiken Shoutai
+564,InuYasha: Kanketsu-hen
+565,Eve no Jikan
+566,Gyakkyou Burai Kaiji: Ultimate Survivor
+567,K: Missing Kings
+568,Seitokai Yakuindomo
+569,Natsume Yuujinchou Shi
+570,Basilisk: Kouga Ninpou Chou
+571,Karigurashi no Arrietty
+572,Naruto: Shippuuden Movie 2 - Kizuna
+573,Dog Days
+574,Aoharu x Kikanjuu
+575,Papa no Iukoto wo Kikinasai!
+576,Seiken Tsukai no World Break
+577,Naruto Movie 2: Dai Gekitotsu! Maboroshi no Chiteiiseki Dattebayo!
+578,Ping Pong The Animation
+579,Mobile Suit Gundam Seed
+580,Kakumeiki Valvrave
+581,Aa! Megami-sama! (TV)
+582,Strike Witches
+583,Mnemosyne: Mnemosyne no Musume-tachi
+584,Terra Formars
+585,Flying Witch
+586,Texhnolyze
+587,Gungrave
+588,Death Billiards
+589,Kara no Kyoukai 7: Satsujin Kousatsu (Kou)
+590,Macross F
+591,Amaama to Inazuma
+592,Shinryaku! Ika Musume
+593,Ano Hi Mita Hana no Namae wo Bokutachi wa Mada Shiranai Movie
+594,Tokyo ESP
+595,Asobi ni Iku yo!
+596,Dragon Crisis!
+597,One Punch Man: Road to Hero
+598,Sekaiichi Hatsukoi
+599,Ladies versus Butlers!
+600,Psycho-Pass Movie
+601,Mimi wo Sumaseba
+602,Saijaku Muhai no Bahamut
+603,Digimon Tamers
+604,Kannagi
+605,Kareshi Kanojo no Jijou
+606,Glasslip
+607,Bleach Movie 4: Jigoku-hen
+608,Sengoku Basara
+609,Kara no Kyoukai 6: Boukyaku Rokuon
+610,JoJo no Kimyou na Bouken: Stardust Crusaders 2nd Season
+611,Zombie-Loan
+612,Haikyuu!!: Karasuno Koukou VS Shiratorizawa Gakuen Koukou
+613,Shinmai Maou no Testament Burst
+614,School Rumble Ni Gakki
+615,Aoi Bungaku Series
+616,Punch Line
+617,Shingeki no Kyojin: Kuinaki Sentaku
+618,Neko no Ongaeshi
+619,Hundred
+620,Soul Eater NOT!
+621,"Kono Naka ni Hitori, Imouto ga Iru!"
+622,Yamato Nadeshiko Shichihenge
+623,New Game!
+624,Love Live! School Idol Project 2nd Season
+625,Kamisama Hajimemashita
+626,Koi to Senkyo to Chocolate
+627,Romeo x Juliet
+628,Naruto Movie 3: Dai Koufun! Mikazuki Jima no Animaru Panikku Dattebayo!
+629,Akaneiro ni Somaru Saka
+630,Okusama ga Seitokaichou!
+631,High School DxD OVA
+632,Yowamushi Pedal
+633,Code Geass: Boukoku no Akito 1 - Yokuryuu wa Maiorita
+634,White Album 2
+635,Hitsugi no Chaika: Avenging Battle
+636,DearS
+637,Utawarerumono
+638,Kyoukaisenjou no Horizon
+639,Ushio to Tora (TV)
+640,Berserk (2016)
+641,Shingetsutan Tsukihime
+642,Tsuritama
+643,Hakuouki
+644,Kimi ga Nozomu Eien
+645,Sakasama no Patema
+646,Tokyo Godfathers
+647,Jinrui wa Suitai Shimashita
+648,YuGiOh!
+649,Yumekui Merry
+650,Hajime no Ippo: New Challenger
+651,Kobato
+652,Ikkitousen
+653,Mononoke
+654,Death Note Rewrite
+655,Jitsu wa Watashi wa
+656,Mahou Shoujo MadokaMagica Movie 1: Hajimari no Monogatari
+657,Fullmetal Alchemist: The Sacred Star of Milos
+658,Midori no Hibi
+659,Gugure! Kokkuri-san
+660,Prince of Tennis
+661,Junjou Romantica 2
+662,Darker than Black: Kuro no Keiyakusha Special
+663,Naruto: Shippuuden Movie 6 - Road to Ninja
+664,Gantz 2nd Stage
+665,Higashi no Eden Movie II: Paradise Lost
+666,Mobile Suit Gundam 00 Second Season
+667,Needless
+668,Aku no Hana
+669,Nejimaki Seirei Senki: Tenkyou no Alderamin
+670,Paradise Kiss
+671,Another: The Other - Inga
+672,Kimi to Boku
+673,Chihayafuru 2
+674,Mobile Suit Gundam Wing
+675,Pokemon: The Origin
+676,Ghost in the Shell 2: Innocence
+677,Loveless
+678,Hoshi no Koe
+679,Rail Wars!
+680,Denpa-teki na Kanojo
+681,Mahou Shoujo MadokaMagica Movie 2: Eien no Monogatari
+682,Hoshizora e Kakaru Hashi
+683,One Piece Film: Strong World
+684,The Last: Naruto the Movie
+685,LuckyStar: Original na Visual to Animation
+686,Dantalian no Shoka
+687,Aoki Hagane no Arpeggio: Ars Nova
+688,Naruto: Shippuuden Movie 4 - The Lost Tower
+689,UN-GO
+690,Haiyore! Nyaruko-san W
+691,Girls Bravo: First Season
+692,So Ra No Wo To
+693,Big Order (TV)
+694,Plastic Neesan
+695,GJ-bu
+696,Kill la Kill Special
+697,Pupa
+698,Eyeshield 21
+699,Bungou Stray Dogs 2nd Season
+700,Naruto: Shippuuden Movie 3 - Hi no Ishi wo Tsugu Mono
+701,Keijo!!!!!!!!
+702,Tenkuu no Escaflowne
+703,Fairy Tail OVA
+704,Love Stage!!
+705,Danganronpa 3: The End of Kibougamine Gakuen - Mirai-hen
+706,Divine Gate
+707,Yuru Yuri
+708,Seikoku no Dragonar
+709,One Outs
+710,Gochuumon wa Usagi Desu ka
+711,Michiko to Hatchin
+712,Slam Dunk
+713,Tonari no Seki-kun
+714,OcculticNine
+715,Tengen Toppa Gurren Lagann Movie: Lagann-hen
+716,Brave 10
+717,Jormungand: Perfect Order
+718,Kuusen Madoushi Kouhosei no Kyoukan
+719,Seiken no Blacksmith
+720,Bokurano
+721,Diamond no Ace
+722,Subete ga F ni Naru: The Perfect Insider
+723,The iDOLMSTER
+724,Nanatsu no Taizai: Seisen no Shirushi
+725,Ookami to Koushinryou II: Ookami to Kohakuiro no Yuuutsu
+726,Gintama: Enchousen
+727,Servant x Service
+728,Selector Infected WIXOSS
+729,Tari Tari
+730,Akagami no Shirayuki-hime 2nd Season
+731,Bakemono no Ko
+732,Nogizaka Haruka no Himitsu
+733,Working!!!
+734,Ginga Eiyuu Densetsu
+735,Yahari Ore no Seishun Love Comedy wa Machigatteiru OVA
+736,Green Green
+737,Arakawa Under the Bridge x Bridge
+738,Casshern Sins
+739,DRAMAtical Murder
+740,To LOVE-Ru OVA
+741,Jigoku Shoujo Futakomori
+742,Prince of Stride: Alternative
+743,Love Lab
+744,Freezing Vibration
+745,Tsubasa Chronicle 2nd Season
+746,Bounen no Xamdou
+747,Shinrei Tantei Yakumo
+748,Deadman Wonderland OVA
+749,Pokemon: Maboroshi no Pokemon Lugia Bakutan
+750,Seihou Bukyou Outlaw Star
+751,Shinreigari: Ghost Hound
+752,Kiniro Mosaic
+753,Bleach: Memories in the Rain
+754,Ore ga Ojousama Gakkou ni Shomin Sample Toshite GetsSareta Ken
+755,Senjou no Valkyria
+756,Fairy Tail Movie 1: Houou no Miko
+757,Shoujo Kakumei Utena
+758,Mashiro-iro Symphony: The Color of Lovers
+759,Final Fantasy VII: Advent Children Complete
+760,Berserk: Ougon Jidai-hen I - Haou no Tamago
+761,Aria The Animation
+762,Rokujouma no Shinryakusha! (TV)
+763,Dennou Coil
+764,Mai-HiME
+765,Coppelion
+766,Hoshi wo Ou Kodomo
+767,Mahou Sensei Negima!
+768,Nourin
+769,One Piece Film: Z
+770,Mushishi Zoku Shou 2nd Season
+771,Cross Ange: Tenshi to Ryuu no Rondo
+772,Naruto: Shippuuden Movie 5 - Blood Prison
+773,Nurarihyon no Mago: Sennen Makyou
+774,Mayoi Neko Overrun!
+775,One Punch Man Specials
+776,Junketsu no Maria
+777,High School DxD Specials
+778,Kaze Tachinu
+779,Samurai 7
+780,xxxHOLiC Kei
+781,Digimon Frontier
+782,Tales of the Abyss
+783,Boruto: Naruto the Movie
+784,Kanojo ga Flag wo Oraretara
+785,YuGiOh!: Duel Monsters GX
+786,Samurai Flamenco
+787,"Saikin, Imouto no Yousu ga Chotto Okashiinda ga"
+788,Akikan!
+789,JoJo no Kimyou na Bouken: Diamond wa Kudakenai
+790,Brothers Conflict
+791,Zoku Sayonara Zetsubou Sensei
+792,Kurenai no Buta
+793,Shuumatsu no Izetta
+794,To LOVE-Ru Darkness 2nd
+795,Re:Hamatora
+796,Kore wa Zombie Desu ka OVA
+797,Amagami SS Plus
+798,Itsuka Tenma no Kuro Usagi
+799,GetBackers
+800,Magi: Sinbad no Bouken (TV)
+801,Slayers
+802,Bishoujo Senshi Sailor Moon R
+803,Danna ga Nani wo Itteiru ka Wakaranai Ken 2 Sure-me
+804,Pokemon: Kesshoutou no Teiou Entei
+805,Bleach: The Sealed Sword Frenzy
+806,Princess Tutu
+807,Servamp
+808,Astarotte no Omocha!
+809,Uchuu Kyoudai
+810,Tengen Toppa Gurren Lagann Movie: Gurren-hen
+811,Strawberry Panic
+812,Kurokami The Animation
+813,Tamako Love Story
+814,Blade &amp Soul
+815,Rozen Maiden: Träumend
+816,Gintama Movie: Kanketsu-hen - Yorozuya yo Eien Nare
+817,DGray-man Hallow
+818,Ao no Kanata no Four Rhythm
+819,Chuunibyou demo Koi ga Shitai!: Kirameki no Slapstick Noel
+820,Isekai no Seikishi Monogatari
+821,Carnival Phantasm
+822,Choujigen Game Neptune The Animation
+823,Little Busters!: Refrain
+824,Rewrite
+825,Shikabane Hime: Aka
+826,Toradora!: Bentou no Gokui
+827,Shouwa Genroku Rakugo Shinjuu
+828,Fortune Arterial: Akai Yakusoku
+829,Sola
+830,Shelter
+831,Tegamibachi
+832,Nodame Cantabile: Paris-hen
+833,K-On!: Live House!
+834,Bokusatsu Tenshi Dokuro-chan 2
+835,Tokyo Ghoul: Jack
+836,Saint Seiya
+837,Ore no Imouto ga Konnani Kawaii Wake ga Nai Specials
+838,Suzumiya Haruhi-chan no Yuuutsu
+839,Sora no Otoshimono: Tokeijikake no Angeloid
+840,Grisaia no Meikyuu: Caprice no Mayu 0
+841,Bishoujo Senshi Sailor Moon Crystal
+842,Druaga no Tou: The Aegis of Uruk
+843,Handa-kun
+844,Inu to Hasami wa Tsukaiyou
+845,Sekaiichi Hatsukoi 2
+846,Boku wa Tomodachi ga Sukunai Episode 0
+847,Kono Bijutsubu ni wa Mondai ga Aru!
+848,Hikaru no Go
+849,Rec
+850,Hyouka: Motsubeki Mono wa
+851,Black Blood Brothers
+852,Kami nomi zo Shiru Sekai: Tenri-hen
+853,Asura Cryin
+854,Heavy Object
+855,Date A Live: Date to Date
+856,Vampire Hunter D (2000)
+857,Heppoko Jikken Animation ExcelSaga
+858,Trigun: Badlands Rumble
+859,Initial D First Stage
+860,Masou Gakuen HxH
+861,Yozakura Quartet
+862,Fullmetal Alchemist: Brotherhood Specials
+863,Tokyo Mew Mew
+864,Gravitation
+865,Sekai Seifuku: Bouryaku no Zvezda
+866,Blood: The Last Vampire
+867,Kyousou Giga (TV)
+868,Nodame Cantabile Finale
+869,Baka to Test to Shoukanjuu: Matsuri
+870,Pokemon Advanced Generation
+871,Denpa Kyoushi (TV)
+872,Hayate no Gotoku!!
+873,Ichigo 100%
+874,Sabagebu!
+875,Kuroshitsuji: Book of Murder
+876,Sakigake!! Cromartie Koukou
+877,RDG: Red Data Girl
+878,Gin no Saji 2nd Season
+879,Medaka Box Abnormal
+880,Bishoujo Senshi Sailor Moon S
+881,"Ore, Twintail ni Narimasu"
+882,Ranpo Kitan: Game of Laplace
+883,Hajime no Ippo: Rising
+884,RahXephon
+885,Berserk: Ougon Jidai-hen II - Doldrey Kouryaku
+886,Comet Lucifer
+887,Juuni Kokuki
+888,Ai Yori Aoshi
+889,Dragon Ball Z Movie 14: Kami to Kami
+890,Eve no Jikan (Movie)
+891,Kimi ga Aruji de Shitsuji ga Ore de
+892,Star Driver: Kagayaki no Takuto
+893,Noir
+894,"Dragon Ball Z Movie 08: Moetsukiro!! Nessen, Ressen, Chougekisen"
+895,Mobile Suit Gundam Seed Destiny
+896,Zetman
+897,Berserk: Ougon Jidai-hen III - Kourin
+898,Sunabouzu
+899,Danganronpa 3: The End of Kibougamine Gakuen - Zetsubou-hen
+900,"Inari, Konkon, Koi Iroha"
+901,Nisekoi OVA
+902,Hanbun no Tsuki ga Noboru Sora
+903,Seikimatsu Occult Gakuin
+904,H2O: Footprints in the Sand
+905,Phi Brain: Kami no Puzzle
+906,Witch Hunter Robin
+907,Uchouten Kazoku
+908,Witchblade
+909,Speed Grapher
+910,Hetalia World Series
+911,Joukamachi no Dandelion
+912,Non Non Biyori Repeat
+913,Garo: Honoo no Kokuin
+914,Seikon no Qwaser II
+915,Suzuka
+916,Aishiteruze Baby
+917,Hakushaku to Yousei
+918,Isuca
+919,Kimi no Iru Machi
+920,Goshuushou-sama Ninomiya-kun
+921,Kodomo no Jikan (TV)
+922,Seitokai Yakuindomo OVA
+923,Colorful (Movie)
+924,Erementar Gerad
+925,Kiniro no Corda: Primo Passo
+926,Aquarion Evol
+927,Nagato Yuki-chan no Shoushitsu

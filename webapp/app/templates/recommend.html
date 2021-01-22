@@ -16,15 +16,16 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th id="trs-hd" style="background: var(--purple);color: var(--white);border-style: solid;">Name</th>
-                                <th id="trs-hd" style="width: 300px;background: var(--purple);color: var(--white);border-style: solid;">Genre</th>
+                                <th id="trs-hd" style="text-align: center;background: var(--purple);color: var(--white);border-style: solid;">Name</th>
+                                <th id="trs-hd" style="text-align: center;width: 300px;background: var(--purple);color: var(--white);border-style: solid;">Genre</th>
                             </tr>
                         </thead>
                         <tbody>
                             {% for prediction in user_predictions %}
                             <tr>
-                                <td>{{ prediction.anime_id }}</td>
-                                <td>{{ prediction.match }}</td>
+
+                                <td style="text-align: center;"><a href="/{{ prediction.anime_name }}">{{ prediction.anime_name }}</a></td>
+                                <td style="text-align: center;">{{ prediction.match }}%</td>
                             </tr>
                             {% endfor %}
                             <tr></tr>
