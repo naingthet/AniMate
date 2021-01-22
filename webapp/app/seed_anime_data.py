@@ -2,7 +2,6 @@ import json
 from app import db
 from app.models import Animes, Ratings
 
-filename = 'data/clean_data/anime.json'
 filename = 'app/data/clean_data/anime.json'
 
 def load_anime_info(filename):

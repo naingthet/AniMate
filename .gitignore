@@ -147,3 +147,10 @@ settings.json*
 raw_data/
 anime_raw.csv*
 rating_raw.csv*
+clean_data/
+/webapp/app/data/
+/webapp/app/algo/
+webapp/app/data/clean_data/anime.csv
+webapp/app/data/clean_data/anime.json
+webapp/app/data/clean_data/anime_ids.csv
+webapp/app/data/clean_data/ratings.csv

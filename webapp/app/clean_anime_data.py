@@ -62,7 +62,7 @@ def preprocess_anime(anime_df):
     anime_df = anime_df.drop('explicit', 1)
 
     # Pick the top 10% most popular animes
-    anime_df = pick_most_popular(anime_df, 0.1)
+    anime_df = pick_most_popular(anime_df, 0.5)
 
     # Clean the anime names
     anime_df['name'] = anime_df['name'].apply(text_cleaner)
@@ -86,7 +86,7 @@ def export_clean_anime(filename):
 
     anime_df.to_json('data/clean_data/anime.json', orient='records')
     anime_df.to_csv('data/clean_data/anime.csv', index=False)
-    anime_df['id'].to_csv('data/clean_data/anime_ids.csv', index=False)
+    anime_df[['id', 'name']].to_csv('data/clean_data/anime_ids.csv', index=False)
 
 
 if __name__ == '__main__':

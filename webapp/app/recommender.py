@@ -9,17 +9,14 @@ model_path = 'app/algo/svd_model'
 def recommender(ratings_path, svd_params):
     # Load data
     data = pd.read_csv(ratings_path)
-
     # Prepare data for algorithm
     reader = Reader(rating_scale=(1, 10))
     dataset = Dataset.load_from_df(data[['user_id', 'anime_id', 'rating']], reader)
     #trainset, _ = train_test_split(dataset, test_size=0.0)
     trainset = dataset.build_full_trainset()
-
     # Initialize and train model
     algo = SVD(**svd_params)
     algo.fit(trainset)
-
     return algo
 
 

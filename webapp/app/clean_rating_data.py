@@ -2,8 +2,8 @@ import pandas as pd
 
 """Load, preprocess, and export cleaned rating data. Rating data will be merged with anime data. """
 
-rating_raw = 'data/raw_data/raw_rating.csv'
-anime_clean = 'data/clean_data/anime.csv'
+rating_raw = 'app/data/raw_data/raw_rating.csv'
+anime_clean = 'app/data/clean_data/anime.csv'
 
 
 def load_data(filename):
@@ -11,7 +11,7 @@ def load_data(filename):
     data = pd.read_csv(filename)
     return data
 
-def preprocess_rating(rating_df, anime_df, frac=0.1):
+def preprocess_rating(rating_df, anime_df, frac=0.5):
     """
     Clean, preprocess, and return rating dataframe.
     """
@@ -37,7 +37,7 @@ def export_clean_ratings(rating_raw, anime_clean):
     rating_df = load_data(rating_raw)
     anime_df = load_data(anime_clean)
     ratings = preprocess_rating(rating_df=rating_df, anime_df=anime_df)
-    ratings.to_csv('data/clean_data/ratings.csv', index=False)
+    ratings.to_csv('app/data/clean_data/ratings.csv', index=False)
 
 
 if __name__ == '__main__':
