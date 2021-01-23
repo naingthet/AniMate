@@ -53,3 +53,6 @@ class RatingForm(FlaskForm):
     choices = [None, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     rating = SelectField("Rate it!", choices = choices, validators=[DataRequired()])
     submit = SubmitField('Submit')
+
+class RecommendationForm(FlaskForm):
+    submit = SubmitField('Get Recommendations!')

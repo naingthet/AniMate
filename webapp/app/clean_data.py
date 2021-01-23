@@ -28,7 +28,7 @@ def explicit(genre):
         return 'No'
 
 def pick_most_popular(data, frac):
-    ''' Function that will limit data to the most popular animes'''
+    """ Function that will limit data to the most popular animes"""
 
     data = data.sort_values('members', ascending=False)
     max_row = round(len(data) * frac)
@@ -41,18 +41,15 @@ def text_cleaner(text):
     # Use regular expressions to remove punctutation, nonstandard characters, and web links
     text = text.replace('&#039;', "'")
     text = text.replace('&quot;', '"')
-    text = re.sub(r"[^{L}\w%\s\:\,\!()\-\&]", '', text)
+    text = re.sub(r"[^{L}\w%\s:,!()\-&]", '', text)
     text = text.strip()
     return text
 
 
 # Preprocessing data
 
-def preprocess_anime(anime_df, frac=1.0):
-    '''Preprocess anime data'''
-
-    # Select animes with at least 100 views
-    anime_df = anime_df[anime_df['members'] > 100]
+def preprocess_anime(anime_df, frac=0.1):
+    """Preprocess anime data"""
 
     # Remove rows with missing genre and rating
     anime_df = anime_df.dropna(axis=0, subset=['genre', 'rating'])
