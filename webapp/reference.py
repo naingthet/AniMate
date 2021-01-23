@@ -14,9 +14,9 @@ for anime in Animes.query.all():
 
 # Easier way of searching
 Animes.reindex()
-query, total = Animes.search('one punch man', 1, 5)
-print(total)
-print(query.all())
+# query, total = Animes.search('one punch man', 1, 5)
+# print(total)
+# print(query.all())
 
 # # Data for each query
 # user_id = 1
