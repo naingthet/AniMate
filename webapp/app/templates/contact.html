@@ -1,16 +1,15 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block app_content %}
-
 <main class="page login-page">
     <section class="clean-block clean-form dark">
         <div class="container">
             <div class="block-heading">
-                <h2 class="text-center" style="color: var(--purple);">Reset Your Password</h2>
+                <h2 class="text-center" style="color: var(--purple);">Contact Us</h2>
             </div>
                 {{ wtf.quick_form(form, button_map={'submit': 'primary'}) }}
         </div>
-    </section>
+</section>
 </main>
 {% endblock %}

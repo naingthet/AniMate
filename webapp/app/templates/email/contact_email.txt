@@ -1,0 +1,8 @@
+Dear admin,
+
+You have been received a message from an AniMate user.
+
+User name: {{ name }}
+User email: {{ email }}
+Subject: {{ subject }}
+Message: {{ message }}

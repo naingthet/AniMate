@@ -5,9 +5,10 @@ from app.models import User, Ratings, Animes
 from flask import request, g
 from werkzeug.urls import url_parse
 from app.forms import LoginForm, RegistrationForm, RecommendationForm, ResetPasswordRequestForm, ResetPasswordForm, \
-    SearchForm, RatingForm
-from app.email import send_password_reset_email
+    SearchForm, RatingForm, ContactForm
+from app.email import send_password_reset_email, send_contact_email
 from app.predictions import predict_ratings
+from sqlalchemy.sql import func
 
 
 
@@ -92,6 +93,20 @@ def reset_password(token):
         return redirect(url_for('login'))
     return render_template('reset_password.html', form=form)
 
+# Contact page
+@app.route('/contact', methods=['GET', 'POST'])
+@login_required
+def contact():
+    form = ContactForm()
+    if form.validate_on_submit():
+        subject = form.subject.data
+        name = form.name.data
+        email = form.email.data
+        message = form.message.data
+        send_contact_email(subject, name, email, message)
+        return redirect(url_for('index'))
+    return render_template('contact.html',
+                           title='Contact Us', form=form)
 
 # Search
 @app.route('/search', methods=['GET', 'POST'])
@@ -111,7 +126,7 @@ def search():
             else:
                 i.user_rating = None
         return render_template('search.html', search_term=search_term, form=form, results=results)
-    return render_template('search.html', form=form)
+    return render_template('search.html', form=form, title='Search')
 
 
 # Rating page for each anime
@@ -136,7 +151,7 @@ def display_anime(anime_name):
             db.session.commit()
         return redirect(url_for('search'))
 
-    return render_template('anime.html', anime=anime, form=form)
+    return render_template('anime.html', anime=anime, form=form, title=anime_name)
 
 
 # Give anime recommendations to users
@@ -148,4 +163,20 @@ def recommend():
         user_id = current_user.id
         user_predictions = predict_ratings(user_id)
         return render_template('recommend.html', user_predictions=user_predictions, form=form)
-    return render_template('recommend.html', form=form)
+    return render_template('recommend.html', form=form, title='Recommendations')
+
+# User homepage
+@app.route('/dashboard', methods=['GET', 'POST'])
+@login_required
+def dashboard():
+    user_id = current_user.id
+    top_rated = Animes.query.order_by(Animes.avg_rating.desc()).limit(10)
+    most_popular = Animes.query.order_by(Animes.members.desc()).limit(10)
+    user_favorites = Ratings.query.filter_by(user_id=user_id).order_by(Ratings.user_rating.desc()).limit(10)
+    user_recents = Ratings.query.filter_by(user_id=user_id).order_by(Ratings.id.desc()).limit(10)
+    user_rating_count = Ratings.query.filter_by(user_id=user_id).count()
+    user_avg_rating = Ratings.query.with_entities(func.avg(Ratings.user_rating).label('average')).filter_by(
+        user_id=user_id).all()[0][0]
+    return render_template('dashboard.html', top_rated=top_rated, most_popular=most_popular,
+                           user_favorites=user_favorites, user_recents=user_recents,
+                           user_rating_count=user_rating_count, user_avg_rating=user_avg_rating, title='Dashboard')

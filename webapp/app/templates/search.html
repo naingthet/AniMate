@@ -7,10 +7,10 @@
         <section class="clean-block clean-blog-list dark">
             <div class="container">
                 <div class="block-heading">
-                    <h2 class="text-info">Search Animes</h2>
+                    <h2 class="text-center" style="color: var(--purple);">Search Animes</h2>
                     <p>Search for animes so that you can rate them!</p>
                 </div>
-                <div class="block-content" style="text-align: left;">
+                <div class="block-content">
                     {{ wtf.quick_form(form, button_map={'submit': 'primary'}) }}
             {% if results %}
             <br><br>
@@ -49,6 +49,9 @@
                     </table>
                     {% endif %}
             </div>
+                    <br><p class="description"><strong>Note: </strong>Some anime names are in Romaji (romanized Japanese), so try searching using the Romaji name if you cannot find an anime. For example, to find "Your Name", you would need to search for "Kimi no nawa". We are working to ensure that all names are translated!</p>
+
+
         </section>
     </main>
 

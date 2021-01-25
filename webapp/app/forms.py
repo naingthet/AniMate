@@ -37,7 +37,14 @@ class ResetPasswordForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])
     password2 = PasswordField(
         'Repeat Password', validators=[DataRequired(), EqualTo('password')])
-    submit = SubmitField('Request Password Reset')    
+    submit = SubmitField('Request Password Reset')
+
+class ContactForm(FlaskForm):
+    name = StringField('Name', validators=[DataRequired()])
+    subject = StringField('Subject', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    message = StringField('Message', validators=[DataRequired()])
+    submit = SubmitField('Send')
 
 class SearchForm(FlaskForm):
     search = StringField('Search by Anime Name', validators=[DataRequired()])

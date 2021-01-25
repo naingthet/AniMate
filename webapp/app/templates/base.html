@@ -30,12 +30,16 @@
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item"></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url_for("search") }}">Search</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url_for("logout") }}">Logout</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url_for("recommend") }}">Recommendations</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url_for("index") }}">Contact Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url_for("login") }}">Login</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url_for("register") }}">Register</a></li>
+                    {% if current_user.is_anonymous %}
+                    <li class="nav-item"><a class="nav-link" style="font-size: 14px;color: var(--dark);" href="{{ url_for("login") }}">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" style="font-size: 14px;background: var(--purple);color: var(--white);border-top-left-radius: 10px;border-top-right-radius: 10px;border-bottom-right-radius: 10px;border-top-left-radius: 10px;border-bottom-left-radius: 10px;" href="{{ url_for("register") }}">Register</a></li>
+                    {% else %}
+                    <li class="nav-item"><a class="nav-link" style="font-size: 14px;color: var(--dark);" href="{{ url_for("contact") }}">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link" style="font-size: 14px;color: var(--dark);" href="{{ url_for("search") }}">Search</a></li>
+                    <li class="nav-item"><a class="nav-link" style="font-size: 14px;color: var(--dark);" href="{{ url_for("recommend") }}">Recommendations</a></li>
+                    <li class="nav-item"><a class="nav-link" style="font-size: 14px;color: var(--dark);" href="{{ url_for("logout") }}">Logout</a></li>
+                    <li class="nav-item"><a class="nav-link" style="font-size: 14px;background: var(--purple);color: var(--white);border-top-left-radius: 10px;border-top-right-radius: 10px;border-bottom-right-radius: 10px;border-top-left-radius: 10px;border-bottom-left-radius: 10px;" href="{{ url_for("dashboard") }}">Dashboard</a></li>
+                    {% endif %}
                 </ul> 
             </div>
         </div>
@@ -48,29 +52,22 @@
         <footer>
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-6 col-md-3 item">
-                        <h3>Services</h3>
-                        <ul>
-                            <li><a href="#">Web design</a></li>
-                            <li><a href="#">Development</a></li>
-                            <li><a href="#">Hosting</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-6 col-md-3 item">
-                        <h3>About</h3>
-                        <ul>
-                            <li><a href="#">Company</a></li>
-                            <li><a href="#">Team</a></li>
-                            <li><a href="#">Careers</a></li>
-                        </ul>
+                    <div class="col-md-6 item text">
+                        <h3>About the Creator</h3>
+                        <p>AniMate is developed an maintained by Thet Naing, a data scientist and hobbyist based out of New York, NY. Use the social links below to explore Thet's LinkedIn, portfolio, and GitHub!</p>
                     </div>
                     <div class="col-md-6 item text">
-                        <h3>Company Name</h3>
-                        <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
+                        <h3>About AniMate</h3>
+                        <p>AniMate is an Anime Recommendation System powered by collaborative filtering. AniMate uses millions of user ratings for 10,000 animes to match users with their next favorite anime.</p>
                     </div>
-                    <div class="col item social"><a class="bg-dark" href="#"><i class="fab fa-linkedin"></i></a><a class="bg-dark" href="#"><i class="fab fa-github"></i></a><a class="bg-dark" href="#"><i class="icon ion-ios-contact"></i></a><a class="bg-dark" href="#"><i class="fas fa-envelope"></i></a></div>
+                    <div class="col item social">
+                        <a class="bg-dark" href="https://www.linkedin.com/in/thet-naing/"><i class="fab fa-linkedin"></i></a>
+                        <a class="bg-dark" href="https://github.com/naingthet/AniMate"><i class="fab fa-github"></i></a>
+                        <a class="bg-dark" href="https://tnaing.app/"><i class="icon ion-ios-contact"></i></a>
+                        <a class="bg-dark" href="mailto:naingthet@gmail.com"><i class="fas fa-envelope"></i></a>
+                    </div>
                 </div>
-                <p class="copyright">AniMate © 2021</p>
+                <p class="copyright">AniMate © 2021 (MIT License)</p>
             </div>
         </footer>
     </div>

@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+    <main class="page blog-post-list">
+        <section class="clean-block clean-blog-list dark">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-center" style="color: var(--purple);">Welcome, {{current_user.username}}!</h2>
+                    <p>This is your dashboard, an overview of your profile. Check back frequently to see the latest updates!</p>
+                </div>
+                <div class="block-content" style="width: 1149px;">
+                    <div class="clean-blog-post">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body" style="border-left: 5px solid var(--purple);">
+                                        <h4 class="card-title" style="color: var(--purple);"><strong>Your Ratings</strong></h4>
+                                        <span style="font-size: 24px;">{{ user_rating_count }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body" style="border-left: 5px solid var(--purple);">
+                                        <h4 class="card-title" style="color: var(--purple);"><strong>Your Average Rating</strong></h4>
+                                        <span style="font-size: 24px;">{{ "{:.1f}".format(user_avg_rating) }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clean-blog-post">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body" style="border-left: 5px solid var(--pink);">
+                                        <h4 class="card-title" style="color: var(--pink);"><strong>Most Popular Animes</strong></h4>
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th style="width: 230px;">Anime</th>
+                                                        <th style="width: 230px;">Ratings</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                {% for anime in most_popular %}
+                                                    <tr>
+                                                        <td style="width: 230px;"><a href="/{{ anime.name }}">{{ anime.name }}</td>
+                                                        <td style="width: 230px;">{{ "{:,.0f}".format(anime.members) }}</td>
+                                                    </tr>
+                                                    <tr></tr>
+                                                {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body" style="color: var(--pink);border-left: 5px solid var(--pink) ;">
+                                        <h4 class="card-title" style="color: var(--pink);"><strong>Top Rated Animes</strong></h4>
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th style="width: 230px;">Anime</th>
+                                                        <th style="width: 230px;">Average Rating</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                {% for anime in top_rated %}
+                                                    <tr>
+                                                        <td style="width: 230px;"><a href="/{{ anime.name }}">{{ anime.name }}</td>
+                                                        <td style="width: 230px;">{{ "{:.1f}".format(anime.avg_rating) }}</td>
+                                                    </tr>
+                                                    <tr></tr>
+                                                {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clean-blog-post">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body" style="border-left: 5px solid var(--blue) ;">
+                                        <h4 class="card-title" style="color: var(--blue)"><strong>Your Favorite Animes</strong></h4>
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th style="width: 230px;">Anime</th>
+                                                        <th style="width: 230px;">Rating</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                {% for anime in user_favorites %}
+                                                    <tr>
+                                                        <td style="width: 230px;"><a href="/{{ anime.anime_name }}">{{ anime.anime_name }}</td>
+                                                        <td style="width: 230px;">{{ anime.user_rating }}</td>
+                                                    </tr>
+                                                    <tr></tr>
+                                                {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body" style="border-left: 5px solid var(--blue) ;">
+                                        <h4 class="card-title" style="color: var(--blue)"><strong>Your Most Recent Ratings</strong></h4>
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th style="width: 230px;">Anime</th>
+                                                        <th style="width: 230px;">Rating</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                {% for anime in user_recents %}
+                                                    <tr>
+                                                        <td style="width: 230px;"><a href="/{{ anime.anime_name }}">{{ anime.anime_name }}</td>
+                                                        <td style="width: 230px;">{{ anime.user_rating }}</td>
+                                                    </tr>
+                                                    <tr></tr>
+                                                {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+{% endblock %}
