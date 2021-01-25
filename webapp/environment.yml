@@ -3,7 +3,7 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - alembic=1.4.3=pyh9f0ad1d_0
+  - alembic=1.5.2=pyhd8ed1ab_0
   - blas=1.0=mkl
   - blinker=1.4=py38_0
   - brotlipy=0.7.0=py38h2bbff1b_1003
