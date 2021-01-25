@@ -1,4 +1,4 @@
-alembic @ file:///home/conda/feedstock_root/build_artifacts/alembic_1611176215154/work
+alembic==1.5.2
 blinker==1.4
 brotlipy==0.7.0
 certifi==2020.12.5
