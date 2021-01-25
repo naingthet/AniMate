@@ -154,4 +154,8 @@ ratings.csv*
 .vs/
 svd_model*
 logs/
+raw_anime.csv*
+raw_anime_2.csv*
+raw_rating.csv*
+
 
