@@ -14,3 +14,5 @@ class Config(object):
     ADMINS = ['animate.recommendation.system@gmail.com']
     ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
     RESULTS_PER_PAGE = 10
+    LOG_TO_STDOUT = os.environ.get('LOG_TO_STDOUT')
+
