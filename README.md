@@ -9,9 +9,8 @@
 
   <p align="center">
     A collaborative filtering recommendation system for anime lovers!
-    The live application is coming soon!
   </p>
-  <p align="center"> This repository and ReadMe will be updated frequently as the web application is further developed for deployment with Heroku. Check out the screenshots below!</p> 
+  <p align="center"> This repository is no longer maintained.</p> 
 </p>
 
 
